@@ -33,11 +33,11 @@ public class PlayerWater : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
 
-        if (other.tag == "Fire")
+        if (other.tag == "Water")
         {
             baseeDataPlayer.isDie = false;
         }
-        if (other.tag == "Water")
+        if (other.tag == "Fire")
         {
             baseeDataPlayer.isDie = true;
         }
