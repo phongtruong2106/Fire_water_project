@@ -12,7 +12,21 @@ public class PlayerWater : MonoBehaviour
     private GameObject obj_Player;
     [SerializeField]
     private Transform respawnPoint;
+     [SerializeField]
+    private string targetRespawnPointName = "targetRespawnPoint"; 
+    private void Start()
+    {
+        GameObject targetRespawnGameObject = GameObject.Find(targetRespawnPointName);
 
+        if (targetRespawnGameObject != null)
+        {
+            respawnPoint = targetRespawnGameObject.transform;
+        }
+        else
+        {
+            Debug.LogError("Không tìm thấy GameObject có tên '" + targetRespawnPointName + "'");
+        }
+    }
     private void Update()
     {
         Die();

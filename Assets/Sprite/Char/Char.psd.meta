@@ -144,12 +144,12 @@ TextureImporter:
       name: Char_0
       rect:
         serializedVersion: 2
-        x: 157
-        y: 328
-        width: 331
-        height: 345
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 115
+        y: 0
+        width: 373
+        height: 673
+      alignment: 9
+      pivot: {x: 0.40270004, y: 0.49262333}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -974,8 +974,8 @@ TextureImporter:
       name: Char_1
       rect:
         serializedVersion: 2
-        x: 115
-        y: 265
+        x: 5
+        y: 622
         width: 56
         height: 53
       alignment: 0
@@ -1235,8 +1235,8 @@ TextureImporter:
       name: Char_2
       rect:
         serializedVersion: 2
-        x: 370
-        y: 263
+        x: 1164
+        y: 354
         width: 41
         height: 45
       alignment: 0
@@ -1515,9 +1515,9 @@ TextureImporter:
       name: Char_3
       rect:
         serializedVersion: 2
-        x: 149
-        y: 82
-        width: 219
+        x: 1097
+        y: 431
+        width: 1
         height: 246
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1988,9 +1988,9 @@ TextureImporter:
       name: Char_4
       rect:
         serializedVersion: 2
-        x: 159
-        y: 1
-        width: 82
+        x: 1204
+        y: 303
+        width: 1
         height: 79
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2279,9 +2279,9 @@ TextureImporter:
       name: Char_5
       rect:
         serializedVersion: 2
-        x: 261
-        y: 0
-        width: 87
+        x: 1193
+        y: 351
+        width: 1
         height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2610,10 +2610,10 @@ TextureImporter:
       name: Char_6
       rect:
         serializedVersion: 2
-        x: 658
-        y: 285
-        width: 295
-        height: 284
+        x: 628
+        y: 9
+        width: 319
+        height: 560
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3001,8 +3001,8 @@ TextureImporter:
       name: Char_7
       rect:
         serializedVersion: 2
-        x: 628
-        y: 223
+        x: 1149
+        y: 422
         width: 56
         height: 49
       alignment: 0
@@ -3312,8 +3312,8 @@ TextureImporter:
       name: Char_8
       rect:
         serializedVersion: 2
-        x: 888
-        y: 199
+        x: 1150
+        y: 431
         width: 55
         height: 52
       alignment: 9
@@ -3603,8 +3603,8 @@ TextureImporter:
       name: Char_9
       rect:
         serializedVersion: 2
-        x: 678
-        y: 10
+        x: 1125
+        y: 393
         width: 80
         height: 85
       alignment: 0
@@ -3884,8 +3884,8 @@ TextureImporter:
       name: Char_10
       rect:
         serializedVersion: 2
-        x: 788
-        y: 9
+        x: 1114
+        y: 361
         width: 91
         height: 76
       alignment: 0
@@ -4273,9 +4273,9 @@ TextureImporter:
       name: Char_11
       rect:
         serializedVersion: 2
-        x: 666
-        y: 79
-        width: 229
+        x: 1204
+        y: 207
+        width: 1
         height: 217
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -4700,6 +4700,27 @@ TextureImporter:
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
+    - serializedVersion: 2
+      name: Char_12
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 469
+        width: 8
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d4af7b4642f6ff48b96ba8d0f49f78b
+      internalID: -1467027984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4715,6 +4736,7 @@ TextureImporter:
       Char_1: 279869959
       Char_10: 112855595
       Char_11: 230619570
+      Char_12: -1467027984
       Char_2: -112395778
       Char_3: -1030703113
       Char_4: -799702666
