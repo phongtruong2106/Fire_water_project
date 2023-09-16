@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -9,28 +9,37 @@ public class Player : MonoBehaviour
     private bool isGrouned;
 
     [SerializeField]
+    private PhotonView view;
+
+    [SerializeField]
     private BaseeDataPlayer data_Player;
 
+
+    private void Start() {
+        view = GetComponent<PhotonView>();
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>(); 
+        
     }
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-       rb.velocity = new Vector3(horizontalInput * data_Player.SpeedMove, rb.velocity.y);
-
-
-        //flip player when moving left right
-        if (horizontalInput > 0.1f)
-            transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.1f)
-            transform.localScale = new Vector3(-1, 1, 1);
-
-        if (Input.GetKey(KeyCode.Space) && isGrouned)
-            Jump();
+        if(view.IsMine)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector3(horizontalInput * data_Player.SpeedMove, rb.velocity.y);
+            //flip player when moving left right
+            if (horizontalInput > 0.1f)
+                transform.localScale = Vector3.one;
+            else if (horizontalInput < -0.1f)
+                transform.localScale = new Vector3(-1, 1, 1);
+            if (Input.GetKey(KeyCode.Space) && isGrouned)
+                Jump();
+        }
+       
     }
 
     private void Jump()

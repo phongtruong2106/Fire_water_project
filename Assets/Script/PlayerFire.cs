@@ -12,21 +12,10 @@ public class PlayerFire : MonoBehaviour
     [SerializeField]
     private GameObject obj_Player;
     [SerializeField]
-    private Transform respawnPoint;
-        [SerializeField]
-    private string targetRespawnPointName = "targetRespawnPoint"; 
+    private GameObject respawnPoint;
     private void Start()
-    {
-        GameObject targetRespawnGameObject = GameObject.Find(targetRespawnPointName);
-
-        if (targetRespawnGameObject != null)
-        {
-            respawnPoint = targetRespawnGameObject.transform;
-        }
-        else
-        {
-            Debug.LogError("Không tìm thấy GameObject có tên '" + targetRespawnPointName + "'");
-        }
+    {    
+        respawnPoint = GameObject.Find("targetRepawnPoint");
     }
     private void Update()
     {
@@ -72,7 +61,7 @@ public class PlayerFire : MonoBehaviour
     private void Live()
     {
         // Move the player to the respawn point
-        obj_Player.transform.position = respawnPoint.position;
+        obj_Player.transform.position = respawnPoint.transform.position;
 
         // Reactivate the player object
         obj_Player.SetActive(true);

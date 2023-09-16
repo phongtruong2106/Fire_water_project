@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 4293671062160604285}
   - component: {fileID: 4293671062160604282}
   - component: {fileID: 7335504023385396085}
+  - component: {fileID: 3557985017542173156}
+  - component: {fileID: 5418936477345426826}
   m_Layer: 7
   m_Name: PlayerWater
   m_TagString: PlayerWater
@@ -102,7 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528b51bccde18c54b886c2e1f8400eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data_Player: {fileID: 11400000, guid: 76d932565ddca7b409ca36b5faf68bb7, type: 2}
+  view: {fileID: 0}
+  data_Player: {fileID: 11400000, guid: 697349bc65ac6394a94244c1a1e956e0, type: 2}
 --- !u!50 &4293671062160604279
 Rigidbody2D:
   serializedVersion: 4
@@ -176,11 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7340008e30c41bb479b3ceb39496ee4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseeDataPlayer: {fileID: 11400000, guid: 76d932565ddca7b409ca36b5faf68bb7, type: 2}
+  baseeDataPlayer: {fileID: 11400000, guid: 697349bc65ac6394a94244c1a1e956e0, type: 2}
   baseeDataSystem: {fileID: 11400000, guid: 6c96e99dce301124595a6a97bffa2496, type: 2}
   obj_Player: {fileID: 5521727274339485535}
   respawnPoint: {fileID: 0}
-  targetRespawnPointName: targetRespawnPoint
 --- !u!114 &7335504023385396085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +201,58 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 3557985017542173156}
+  - {fileID: 5418936477345426826}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &3557985017542173156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521727274339485535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 0
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 1
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
+--- !u!114 &5418936477345426826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521727274339485535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
