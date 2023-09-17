@@ -10,7 +10,7 @@ public class gateopeningpuzzle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "PlayerWater" || other.tag == "PlayerFire" || other.tag == "Item")
+        if (other.tag == "Player" || other.tag == "Item")
         {
             puzzelGateData.isOpen = true;
             Debug.Log(puzzelGateData.isOpen);
@@ -19,7 +19,7 @@ public class gateopeningpuzzle : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "PlayerWater" || other.tag == "PlayerFire" || other.tag == "Item")
+        if (other.tag == "Player" || other.tag == "Item")
         {
             puzzelGateData.isOpen = false;
             Debug.Log(puzzelGateData.isOpen);

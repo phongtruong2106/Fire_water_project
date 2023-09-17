@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 5418936477345426826}
   m_Layer: 7
   m_Name: PlayerWater
-  m_TagString: PlayerWater
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

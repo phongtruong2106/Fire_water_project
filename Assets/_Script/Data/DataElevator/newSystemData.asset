@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 855c8f44a158ed341ad56a2d9c2eae78, type: 3}
-  m_Name: newPuzzelData
+  m_Script: {fileID: 11500000, guid: f6632b4aeeec29844926bd74e4c1d674, type: 3}
+  m_Name: newSystemData
   m_EditorClassIdentifier: 
-  isOpen: 1
+  player: {fileID: 0}
+  evavatorSwitch: {fileID: 0}
+  downpos: {fileID: 0}
+  upperpos: {fileID: 0}
+  speed: 0
+  isevelevatordown: 0
