@@ -54,7 +54,19 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrouned = true;
+            
+        }
+        if(collision.gameObject.tag == "elevator")
+        {
+            transform.parent = collision.gameObject.transform;
+        }
+    }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "elevator")
+        {
+            transform.parent = null;
         }
     }
 

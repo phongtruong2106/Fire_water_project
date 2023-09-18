@@ -11,6 +11,7 @@ TagManager:
   - Fire
   - Water
   - Bullet
+  - elevator
   layers:
   - Default
   - TransparentFX

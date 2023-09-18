@@ -20,6 +20,7 @@ public class Elevator : MonoBehaviour
     }
     private void Update() {
         StartElevator();
+        DisplayColor();
     }
     private void StartElevator()
     {
@@ -45,4 +46,15 @@ public class Elevator : MonoBehaviour
         }
     }
 
+    private void DisplayColor()
+    {
+        if(transform.position.y <= downpos.position.y || transform.position.y >= upperpos.position.y)
+        {
+            elevator.color = Color.green;
+        }
+        else
+        {
+            elevator.color  = Color.red;
+        }
+    }
 }

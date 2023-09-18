@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 1519740490383496663}
   m_Layer: 7
   m_Name: PlayerFire
-  m_TagString: PlayerFire
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
