@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528b51bccde18c54b886c2e1f8400eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  view: {fileID: 0}
+  view: {fileID: 1640798687602156505}
   data_Player: {fileID: 11400000, guid: 76d932565ddca7b409ca36b5faf68bb7, type: 2}
 --- !u!50 &631022838617280002
 Rigidbody2D:

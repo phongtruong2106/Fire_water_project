@@ -51,23 +51,31 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if(view.IsMine)
         {
-            isGrouned = true;
-            
+            if (collision.gameObject.tag == "Ground")
+            {
+                isGrouned = true;
+                
+            }
+            if(collision.gameObject.tag == "elevator")
+            {
+                transform.parent = collision.gameObject.transform;
+            } 
         }
-        if(collision.gameObject.tag == "elevator")
-        {
-            transform.parent = collision.gameObject.transform;
-        }
+       
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "elevator")
+        if(view.IsMine)
         {
-            transform.parent = null;
+             if(collision.gameObject.tag == "elevator")
+            {
+                transform.parent = null;
+            }
         }
+       
     }
 
 }
