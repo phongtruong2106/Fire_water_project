@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using Photon.Pun;
 
-public class Elevator : MonoBehaviourPun
+public class Elevator : MonoBehaviour
 {
 
     public GameObject player;

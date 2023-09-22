@@ -52,11 +52,6 @@ public class WaterShapeController : MonoBehaviour
     {
         Spline waterSpline = spriteShapeController.spline;
         int waterPointsCount = waterSpline.GetPointCount();
-
-        // Remove middle points for the waves
-        // Keep only the corners
-        // Removing 1 point at a time we can remove only the 1st point
-        // This means every time we remove 1st point the 2nd point becomes first
         for (int i = CorsnersCount; i < waterPointsCount - CorsnersCount; i++)
         {
             waterSpline.RemovePointAt(CorsnersCount);
@@ -103,7 +98,7 @@ public class WaterShapeController : MonoBehaviour
             // waveSpring.Init(spriteShapeController);
         }
 
-        //Splash(5,1f);
+        Splash(5,1f);
     }
     private void CreateSprings(Spline waterSpline)
     {
