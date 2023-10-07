@@ -53,20 +53,20 @@ public class Elevator : MonoBehaviour
 
 
     
-  private void DisplayColor()
+private void DisplayColor()
+{
+    string colorString;
+    if (transform.position.y <= downpos.position.y || transform.position.y >= upperpos.position.y)
     {
-        string colorString;
-        if (transform.position.y <= downpos.position.y || transform.position.y >= upperpos.position.y)
-        {
-            colorString = "green"; // Đại diện cho màu xanh lá cây
-        }
-        else
-        {
-            colorString = "red"; // Đại diện cho màu đỏ
-        }
-
-        photonView.RPC("SetElevatorColor", RpcTarget.All, colorString);
+        colorString = "green"; // Đại diện cho màu xanh lá cây
     }
+    else
+    {
+        colorString = "red"; // Đại diện cho màu đỏ
+    }
+
+    photonView.RPC("SetElevatorColor", RpcTarget.All, colorString);
+}
     [PunRPC] // Đánh dấu phương thức này để đồng bộ hóa
     private void MoveElevator(Vector3 targetPosition)
     {
