@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private bool isGrouned;
+    [SerializeField]
+    private float forceAmount;
+    private float timeElapsed;
+    private bool isMoving = false;
 
     [SerializeField]
     private PhotonView view;
@@ -17,6 +21,7 @@ public class Player : MonoBehaviour
 
     private void Start() {
         view = GetComponent<PhotonView>();
+        rb.velocity = Vector3.down * forceAmount;
     }
     private void Awake()
     {
@@ -27,8 +32,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(view.IsMine)
-        {
+        timeElapsed += Time.deltaTime;
+       
             float horizontalInput = Input.GetAxis("Horizontal");
             rb.velocity = new Vector3(horizontalInput * data_Player.SpeedMove, rb.velocity.y);
             //flip player when moving left right
@@ -38,7 +43,6 @@ public class Player : MonoBehaviour
                 transform.localScale = new Vector3(-1, 1, 1);
             if (Input.GetKey(KeyCode.Space) && isGrouned)
                 Jump();
-        }
        
     }
 

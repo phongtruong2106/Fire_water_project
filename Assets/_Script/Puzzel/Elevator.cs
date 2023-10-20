@@ -18,6 +18,7 @@ public class Elevator : MonoBehaviour
      private string elevatorColor;
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
+        Debug.Log(player);
         photonView = GetComponent<PhotonView>();
     }
     private void Update() {
