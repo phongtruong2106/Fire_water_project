@@ -7,21 +7,12 @@ using UnityEngine.UI;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
-    public InputField usernameInput;
-    public Text button;
-
-    public void OnClickConnect()
-    {
-        if(usernameInput.text.Length >= 1)
-        {
-            PhotonNetwork.NickName = usernameInput.text;
-            button.text = "Connecting.....";
-            PhotonNetwork.AutomaticallySyncScene = true;
-            PhotonNetwork.ConnectUsingSettings();
-        }
+    private void Start() {
+        PhotonNetwork.ConnectUsingSettings();
     }
+
     public override void OnConnectedToMaster()
     {
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("MainMenu");
     }
 }
