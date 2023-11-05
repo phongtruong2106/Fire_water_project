@@ -82,7 +82,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         }
         else
         {
-            playerProperties["playerAvatar"] = 1;
+            playerProperties["playerAvatar"] = 0;
         }
     }
 }

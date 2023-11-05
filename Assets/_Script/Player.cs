@@ -32,31 +32,43 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        timeElapsed += Time.deltaTime;
-       
+        Movement();
+    }
+
+    private void Movement()
+    {
+        if(view.IsMine)
+        {
+            timeElapsed += Time.deltaTime;
             float horizontalInput = Input.GetAxis("Horizontal");
             rb.velocity = new Vector3(horizontalInput * data_Player.SpeedMove, rb.velocity.y);
-            //flip player when moving left right
+            float xScale = Mathf.Abs(transform.localScale.x);
+                //flip player when moving left right
             if (horizontalInput > 0.1f)
-                transform.localScale = Vector3.one;
-            else if (horizontalInput < -0.1f)
-                transform.localScale = new Vector3(-1, 1, 1);
-            if (Input.GetKey(KeyCode.Space) && isGrouned)
-                Jump();
-       
+            {
+                transform.localScale = new Vector3(-xScale, transform.localScale.y, transform.localScale.z);
+            }        
+            else
+            {
+                transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
+            }  
+
+            Jump();
+        }
     }
 
     private void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, data_Player.Jump_fouce);
-       /* anim.SetTrigger("jump");*/
-        isGrouned = false;
+        if (Input.GetKeyDown(KeyCode.Space) && isGrouned)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, data_Player.Jump_fouce);
+         /* anim.SetTrigger("jump");*/
+            isGrouned = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(view.IsMine)
-        {
             if (collision.gameObject.tag == "Ground")
             {
                 isGrouned = true;
@@ -66,20 +78,16 @@ public class Player : MonoBehaviour
             {
                 transform.parent = collision.gameObject.transform;
             } 
-        }
+
        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(view.IsMine)
-        {
              if(collision.gameObject.tag == "elevator")
             {
                 transform.parent = null;
-            }
-        }
-       
+            }   
     }
 
 }

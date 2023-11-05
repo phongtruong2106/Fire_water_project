@@ -10,8 +10,6 @@ public class CameraManager : MonoBehaviour
     public static CameraManager Instance { get; private set; }
     public float timerShake;
     private CinemachineBasicMultiChannelPerlin _cbmcp;
-    private float stratingIntensity;
-    private float TimeShakeTotal;
     private GameObject playerTarget;
 
      private void Awake()
@@ -23,7 +21,6 @@ public class CameraManager : MonoBehaviour
     public void SetPlayerTarget(GameObject player)
     {
         playerTarget = player;
-        // Gán đối tượng Player vào cameraObj để theo dõi
         cameraObj.Follow = playerTarget.transform;
     }
 }

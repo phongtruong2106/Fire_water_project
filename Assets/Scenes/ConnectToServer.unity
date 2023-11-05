@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usernameInput: {fileID: 942089742}
-  button: {fileID: 1577958088}
+  buttonText: {fileID: 1577958088}
 --- !u!4 &295392816
 Transform:
   m_ObjectHideFlags: 0
