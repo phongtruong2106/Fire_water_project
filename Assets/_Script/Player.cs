@@ -43,7 +43,6 @@ public class Player : MonoBehaviour
             float horizontalInput = Input.GetAxis("Horizontal");
             rb.velocity = new Vector3(horizontalInput * data_Player.SpeedMove, rb.velocity.y);
             float xScale = Mathf.Abs(transform.localScale.x);
-                //flip player when moving left right
             if (horizontalInput > 0.1f)
             {
                 transform.localScale = new Vector3(-xScale, transform.localScale.y, transform.localScale.z);
@@ -62,7 +61,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrouned)
         {
             rb.velocity = new Vector2(rb.velocity.x, data_Player.Jump_fouce);
-         /* anim.SetTrigger("jump");*/
             isGrouned = false;
         }
     }

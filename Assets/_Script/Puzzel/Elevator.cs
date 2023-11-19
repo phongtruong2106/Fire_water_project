@@ -6,87 +6,51 @@ using Photon.Pun;
 
 public class Elevator : MonoBehaviour
 {
-
-    public GameObject player;
-    public Transform evavatorSwitch;
-    public Transform downpos;
-    public Transform upperpos;
-    public SpriteRenderer elevator;
+    public Transform downPos;
+    public Transform upperPos;
+    public GameObject platform;
     public float speed;
     public bool isevelevatordown;
-    private PhotonView photonView;
-     private string elevatorColor;
-    private void Start() {
-        player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(player);
-        photonView = GetComponent<PhotonView>();
-    }
+    [SerializeField]
+    private bool isEleter = false;
+
     private void Update() {
-        StartElevator();
-        DisplayColor();
+        InputEvalutor();
     }
-    private void StartElevator()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (photonView.IsMine)
-        {
-            if(Vector2.Distance(player.transform.position, evavatorSwitch.position) < 0.5f && Input.GetKey(KeyCode.E))
-            {
-                if(transform.position.y <= downpos.position.y)
-                {
-                    isevelevatordown = true;
-                }
-                else if(transform.position.y >=  upperpos.position.y)
-                {
-                    isevelevatordown = false;
-                }
-            }
+        isEleter = true;
+    }
 
-            if (isevelevatordown)
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        isEleter = false;
+    }
+
+    private void InputEvalutor()
+    {
+        if(isEleter && Input.GetKey(KeyCode.E))
+        {
+            Debug.Log("ad");
+            if(platform.transform.position.y <= downPos.position.y)
             {
-                photonView.RPC("MoveElevator", RpcTarget.All, upperpos.position);
+                isevelevatordown = true;    
+                Debug.Log(isevelevatordown);
             }
-            else
+            else if(platform.transform.position.y >=  upperPos.position.y)
             {
-                photonView.RPC("MoveElevator", RpcTarget.All, downpos.position);
-            }
+                isevelevatordown = false;
+                 Debug.Log(isevelevatordown);
+            } 
         }
-    }
-
-
-    
-private void DisplayColor()
-{
-    string colorString;
-    if (transform.position.y <= downpos.position.y || transform.position.y >= upperpos.position.y)
-    {
-        colorString = "green"; // Đại diện cho màu xanh lá cây
-    }
-    else
-    {
-        colorString = "red"; // Đại diện cho màu đỏ
-    }
-
-    photonView.RPC("SetElevatorColor", RpcTarget.All, colorString);
-}
-    [PunRPC] // Đánh dấu phương thức này để đồng bộ hóa
-    private void MoveElevator(Vector3 targetPosition)
-    {
-        // Di chuyển thang máy đến vị trí được chỉ định
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-    }
-    [PunRPC]
-    private void SetElevatorColor(string colorString)
-    {
-        Color color;
-        if (colorString == "green")
+        if(isevelevatordown)
         {
-            color = Color.green;
+            platform.transform.position = Vector2.MoveTowards(platform.transform.position, upperPos.position, speed * Time.deltaTime);
         }
         else
         {
-            color = Color.red;
+            platform.transform.position = Vector2.MoveTowards(platform.transform.position, downPos.position, speed * Time.deltaTime);
         }
-
-        elevator.color = color;
     }
+
 }
