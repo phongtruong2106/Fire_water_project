@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PuzzelGateHorizontalManager : MonoBehaviour
 {
@@ -8,9 +9,13 @@ public class PuzzelGateHorizontalManager : MonoBehaviour
     private PuzzelGateData puzzelGateData;
     [SerializeField]
     private Animator anim;
+      [SerializeField]
+    private PhotonView view;
+
 
     private void Start()
     {
+        view = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
     }
 
@@ -21,6 +26,7 @@ public class PuzzelGateHorizontalManager : MonoBehaviour
 
     private void GateOpen()
     {
-        anim.SetBool("Open", puzzelGateData.isOpen);
+         anim.SetBool("Open", puzzelGateData.isOpen);
+        
     }
 }

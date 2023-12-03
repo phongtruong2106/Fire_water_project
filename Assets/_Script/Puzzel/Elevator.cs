@@ -1,49 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
-public class Elevator : MonoBehaviour
+public class Elevator : MonoBehaviourPunCallbacks, IPunObservable
 {
     public Transform downPos;
     public Transform upperPos;
     public GameObject platform;
     public float speed;
-    public bool isevelevatordown;
+
+    private bool isevelevatordown;
     [SerializeField]
-    private bool isEleter = false;
+    private PhotonView view;
 
-    private void Update() {
-        InputEvalutor();
-    }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        isEleter = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        isEleter = false;
+        if (view.IsMine)
+        {
+            InputEvalutor();
+        }
     }
 
     private void InputEvalutor()
     {
-        if(isEleter && Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
-            Debug.Log("ad");
-            if(platform.transform.position.y <= downPos.position.y)
+            if (platform.transform.position.y <= downPos.position.y)
             {
-                isevelevatordown = true;    
-                Debug.Log(isevelevatordown);
+                isevelevatordown = true;
+                photonView.RPC("SetElevatorState", RpcTarget.All, isevelevatordown);
             }
-            else if(platform.transform.position.y >=  upperPos.position.y)
+            else if (platform.transform.position.y >= upperPos.position.y)
             {
                 isevelevatordown = false;
-                 Debug.Log(isevelevatordown);
-            } 
+                photonView.RPC("SetElevatorState", RpcTarget.All, isevelevatordown);
+            }
         }
-        if(isevelevatordown)
+
+        if (isevelevatordown)
         {
             platform.transform.position = Vector2.MoveTowards(platform.transform.position, upperPos.position, speed * Time.deltaTime);
         }
@@ -53,4 +49,26 @@ public class Elevator : MonoBehaviour
         }
     }
 
+    [PunRPC]
+    private void SetElevatorState(bool state)
+    {
+        isevelevatordown = state;
+        Debug.Log("Elevator State: " + isevelevatordown);
+    }
+
+    #region IPunObservable implementation
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(isevelevatordown);
+        }
+        else
+        {
+            isevelevatordown = (bool)stream.ReceiveNext();
+        }
+    }
+
+    #endregion
 }

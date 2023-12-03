@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using Photon.Pun;
+
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -67,25 +67,16 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+    
             if (collision.gameObject.tag == "Ground")
             {
-                isGrouned = true;
-                
+                isGrouned = true;  
             }
-            if(collision.gameObject.tag == "elevator")
-            {
-                transform.parent = collision.gameObject.transform;
-            } 
-
-       
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-             if(collision.gameObject.tag == "elevator")
-            {
-                transform.parent = null;
-            }   
+
     }
 
 }
